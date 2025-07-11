@@ -265,7 +265,6 @@
     border-radius: 40px;
     transition: .5s;
     text-align: center;
-    min-height: 40px;
 }
 
 .service-item:hover .btn {
