@@ -256,6 +256,11 @@
 }
 
 .service-item .btn {
+    opacity: 0; /* Initially hide the button */
+    visibility: hidden; /* Ensure it's not interactive when hidden */
+    transform: translateY(20px); /* Start slightly below its final position */
+    transition: opacity .5s, visibility .5s, transform .5s;
+    
     padding: 10px 20px;
     display: inline-flex;
     flex-wrap: wrap;
@@ -268,6 +273,9 @@
 }
 
 .service-item:hover .btn {
+    opacity: 1; /* Make the button fully visible on hover */
+    visibility: visible; /* Make it interactive on hover */
+    transform: translateY(0); /* Move it to its final position */
     width: 140px;
     height: auto;
     border-radius: 20px;
