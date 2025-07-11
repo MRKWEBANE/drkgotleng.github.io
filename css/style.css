@@ -246,39 +246,67 @@
 
 
 /*** Service ***/
+.service-item .btn {
+    /* Initial state: compact, showing only the plus sign */
+    width: 40px; /* Fixed width for the initial plus sign state */
+    height: 40px; /* Fixed height for the initial plus sign state */
+    padding: 0; /* No padding initially around the plus sign */
+
+    display: inline-flex;
+    align-items: center; /* Vertically center icon */
+    justify-content: center; /* Horizontally center icon */
+    background: #FFFFFF;
+    border-radius: 40px; /* Makes it a circle */
+    
+    overflow: hidden; /* Crucial: Hides the long text initially */
+    white-space: nowrap; /* Keeps all content on one line initially (hides overflowing text) */
+    text-align: left; /* Aligns text left within the button as it expands */
+    
+    transition: width .5s, height .5s, padding .5s, border-radius .5s; /* Smooth transitions for expansion */
+}
+
+/* Style for the plus icon inside the button */
+.service-item .btn .fa-plus { /* Target the specific icon class */
+    font-size: 1.2rem; /* Adjust size of your plus icon */
+    color: var(--bs-primary); /* Assuming text-primary uses a CSS variable */
+    margin-right: 0; /* No margin initially */
+    flex-shrink: 0; /* Prevent the icon from shrinking if text is too long */
+    transition: margin-right .5s; /* Smooth transition for margin */
+}
+
+/* Style for the text content directly inside the button */
+.service-item .btn {
+    /* Adjust text styles as needed for the hidden and revealed state */
+    color: #333; /* Default text color */
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.4; /* For better readability when wrapped */
+}
+
+
+.service-item .btn:hover {
+    width: 180px; /* Adjust this width as needed for your content */
+    height: auto; /* Allow height to adjust as content wraps */
+    padding: 10px 15px; /* Add padding on hover for the expanded state (adjust values) */
+    border-radius: 10px; /* Adjust border-radius for the expanded, possibly multi-line state */
+    
+    overflow: visible; /* Show all content on hover */
+    white-space: normal; /* Allow text to wrap on hover */
+}
+
+/* Adjust the icon's margin when the button is hovered to create space for text */
+.service-item .btn:hover .fa-plus {
+    margin-right: 10px; /* Add space between icon and text on hover */
+    /* Ensure icon's color matches if text-primary changes on hover */
+    color: var(--bs-primary); /* Keep consistent or change as desired */
+}
+
+/* Add any service-item specific hover effects if you still want them */
 .service-item {
     transition: .5s;
 }
-
 .service-item:hover {
     margin-top: -10px;
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08);
-}
-
-.service-item .btn {
-    opacity: 0; /* Initially hide the button */
-    visibility: hidden; /* Ensure it's not interactive when hidden */
-    transform: translateY(20px); /* Start slightly below its final position */
-    transition: opacity .5s, visibility .5s, transform .5s;
-    
-    padding: 10px 20px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border-radius: 40px;
-    transition: .5s;
-    text-align: center;
-}
-
-.service-item:hover .btn {
-    opacity: 1; /* Make the button fully visible on hover */
-    visibility: visible; /* Make it interactive on hover */
-    transform: translateY(0); /* Move it to its final position */
-    width: 140px;
-    height: auto;
-    border-radius: 20px;
 }
 
 
