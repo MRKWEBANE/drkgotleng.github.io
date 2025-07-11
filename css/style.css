@@ -256,8 +256,7 @@
 }
 
 .service-item .btn {
-    width: 40px;
-    height: 40px;
+    
     display: inline-flex;
     align-items: center;
     background: #FFFFFF;
